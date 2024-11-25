@@ -1,30 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: karamire <karamire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/25 03:34:57 by karamire          #+#    #+#             */
-/*   Updated: 2024/11/25 11:07:18 by karamire         ###   ########.fr       */
+/*   Created: 2024/11/16 23:52:33 by karamire          #+#    #+#             */
+/*   Updated: 2024/11/20 11:40:54 by karamire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-#define FT_PRINTF_H
+#include "libft.h"
 
-#include "libft/libft.h"
-#include <stdarg.h>
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+{
+	int		i;
+	int		size;
+	char	*str;
 
-int	ftputstr(va_list ap);
-int	ftputchar(va_list ap);
-int	ftpercent(void);
-int	basetenconv(va_list ap);
-int	printnumber(char *num);
-static int	ft_numsize(unsigned int n);
-int	putnbr_unsigned(unsigned int n);
-int	putnbr_base(unsigned int n, char x);
-char	*base(char c);
-int	ft_adress_base(void *ptr);
-
-#endif
+	if (s == NULL || f == NULL)
+		return (NULL);
+	i = 0;
+	size = ft_strlen(s);
+	str = malloc(sizeof(char) * (size + 1));
+	if (str == NULL)
+		return (NULL);
+	while (s[i] != '\0')
+	{
+		str[i] = f(i, s[i]);
+		i++;
+	}
+	str[i] = '\0';
+	return (str);
+}

@@ -1,30 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: karamire <karamire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/25 03:34:57 by karamire          #+#    #+#             */
-/*   Updated: 2024/11/25 11:07:18 by karamire         ###   ########.fr       */
+/*   Created: 2024/11/11 10:18:28 by karamire          #+#    #+#             */
+/*   Updated: 2024/11/13 22:17:31 by karamire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-#define FT_PRINTF_H
+#include "libft.h"
 
-#include "libft/libft.h"
-#include <stdarg.h>
+void	ft_bzero(void *s, size_t n)
+{
+	size_t			i;
+	unsigned char	*ptr;
 
-int	ftputstr(va_list ap);
-int	ftputchar(va_list ap);
-int	ftpercent(void);
-int	basetenconv(va_list ap);
-int	printnumber(char *num);
-static int	ft_numsize(unsigned int n);
-int	putnbr_unsigned(unsigned int n);
-int	putnbr_base(unsigned int n, char x);
-char	*base(char c);
-int	ft_adress_base(void *ptr);
+	ptr = s;
+	i = 0;
+	while (i < n)
+	{
+		ptr[i] = 0;
+		i++;
+	}
+}
 
-#endif
+/* int	main(void)
+{
+	int	str[] = {1, 1, 1, 1, 1};
+	int	i;
+
+	i = 0;
+	while (i < 5)
+	{
+		printf("%d", str[i]);
+		i++;
+	}
+	bzero(str, sizeof(int) * 4);
+	i = 0;
+	printf("\n");
+	while (i < 5)
+	{
+		printf("%d", str[i]);
+		i++;
+	}
+}*/

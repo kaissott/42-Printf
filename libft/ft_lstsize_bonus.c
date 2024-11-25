@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: karamire <karamire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/25 03:34:57 by karamire          #+#    #+#             */
-/*   Updated: 2024/11/25 11:07:18 by karamire         ###   ########.fr       */
+/*   Created: 2024/11/17 05:34:25 by karamire          #+#    #+#             */
+/*   Updated: 2024/11/20 09:07:57 by karamire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-#define FT_PRINTF_H
+#include "libft.h"
 
-#include "libft/libft.h"
-#include <stdarg.h>
+int	ft_lstsize(t_list *lst)
+{
+	int	i;
 
-int	ftputstr(va_list ap);
-int	ftputchar(va_list ap);
-int	ftpercent(void);
-int	basetenconv(va_list ap);
-int	printnumber(char *num);
-static int	ft_numsize(unsigned int n);
-int	putnbr_unsigned(unsigned int n);
-int	putnbr_base(unsigned int n, char x);
-char	*base(char c);
-int	ft_adress_base(void *ptr);
-
-#endif
+	i = 0;
+	while (lst != NULL)
+	{
+		lst = lst->next;
+		i++;
+	}
+	return (i);
+}

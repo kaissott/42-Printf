@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: karamire <karamire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/25 03:34:57 by karamire          #+#    #+#             */
-/*   Updated: 2024/11/25 11:07:18 by karamire         ###   ########.fr       */
+/*   Created: 2024/11/13 16:58:29 by karamire          #+#    #+#             */
+/*   Updated: 2024/11/20 11:52:52 by karamire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-#define FT_PRINTF_H
+#include "libft.h"
 
-#include "libft/libft.h"
-#include <stdarg.h>
+void	*ft_calloc(size_t nmemb, size_t size)
+{
+	unsigned char	*s;
 
-int	ftputstr(va_list ap);
-int	ftputchar(va_list ap);
-int	ftpercent(void);
-int	basetenconv(va_list ap);
-int	printnumber(char *num);
-static int	ft_numsize(unsigned int n);
-int	putnbr_unsigned(unsigned int n);
-int	putnbr_base(unsigned int n, char x);
-char	*base(char c);
-int	ft_adress_base(void *ptr);
-
-#endif
+	if (nmemb == 0 || size == 0)
+		return (malloc(0));
+	if (nmemb > 4294967295 / size)
+		return (NULL);
+	s = malloc(size * nmemb);
+	if (s == NULL)
+		return (NULL);
+	ft_bzero(s, nmemb * size);
+	return ((void *)s);
+}

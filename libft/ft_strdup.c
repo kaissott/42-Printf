@@ -1,30 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: karamire <karamire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/25 03:34:57 by karamire          #+#    #+#             */
-/*   Updated: 2024/11/25 11:07:18 by karamire         ###   ########.fr       */
+/*   Created: 2024/11/13 17:01:41 by karamire          #+#    #+#             */
+/*   Updated: 2024/11/20 14:48:38 by karamire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-#define FT_PRINTF_H
+#include "libft.h"
 
-#include "libft/libft.h"
-#include <stdarg.h>
+char	*ft_strdup(const char *s)
+{
+	char	*str;
+	int		i;
 
-int	ftputstr(va_list ap);
-int	ftputchar(va_list ap);
-int	ftpercent(void);
-int	basetenconv(va_list ap);
-int	printnumber(char *num);
-static int	ft_numsize(unsigned int n);
-int	putnbr_unsigned(unsigned int n);
-int	putnbr_base(unsigned int n, char x);
-char	*base(char c);
-int	ft_adress_base(void *ptr);
+	str = malloc(ft_strlen(s) + 1);
+	if (str == NULL)
+		return (NULL);
+	i = 0;
+	while (s[i] != '\0')
+	{
+		str[i] = s[i];
+		i++;
+	}
+	str[i] = '\0';
+	return (str);
+}
 
-#endif
+// int	main(void)
+// {
+// 	char str[] = "hey";
+// 	ft_strdup(str);
+// }
