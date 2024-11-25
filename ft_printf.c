@@ -6,7 +6,7 @@
 /*   By: karamire <karamire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 03:29:46 by karamire          #+#    #+#             */
-/*   Updated: 2024/11/25 11:05:08 by karamire         ###   ########.fr       */
+/*   Updated: 2024/11/25 12:38:04 by karamire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,9 @@
 int	ft_checkconv (const char c, va_list ap)
 {
 	int	printlen;
+	int	len;
 
+	len = 0;
 	if (c == 's')
 		printlen = ftputstr(ap);
 	else if (c == 'c')
@@ -32,8 +34,10 @@ int	ft_checkconv (const char c, va_list ap)
 	else if (c == 'p')
 	{
 		write(1, "0x", 2);
-		printlen = ft_adress_base(va_arg(ap, void *));
+		printlen = ft_adress_base(va_arg(ap, void *), &len) + 2;
 	}
+	else if (c == '\0')
+		return 0;
 	return (printlen);
 }
 
@@ -47,27 +51,32 @@ int	ft_printf(const char *format, ...)
 	str = format;
 	va_start(ap, format);
 	i = 0;
+	printlen = 0;
 	while (str[i])
 	{
-		if (str[i] == '%')
+		if (str[i] == '%' && str[i + 1])
 		{
 			printlen += ft_checkconv(str[i + 1], ap);
 			i++;
 		}
-		else
+		else if (str[i] != '%')
+		{
 			write(1, &str[i], 1);
-		printlen++;
+			printlen++;
+		}
 		i++;
 	}
 	return (printlen);
 }
 int	main(void)
 {
-	int	a = 12;
+	int	a = 123489;
 
 	int	*d = &a;
 
-	ft_printf("%p", d);
-	printf("%p", d);
+	printf("%d\n",ft_printf("%p\n", d));
+	printf("%d\n",printf("%p\n", d));
 
+	/* ft_printf("%\n", 123465);
+ */
 }
