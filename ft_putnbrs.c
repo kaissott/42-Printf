@@ -6,7 +6,7 @@
 /*   By: karamire <karamire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 08:33:23 by karamire          #+#    #+#             */
-/*   Updated: 2024/11/25 12:08:26 by karamire         ###   ########.fr       */
+/*   Updated: 2024/11/27 17:05:39 by karamire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,17 +48,15 @@ char	*base(char c)
 }
 int	putnbr_base(unsigned int n, char c)
 {
-	unsigned int size;
+	unsigned int len;
 	char	*str;
 	char	p;
 
 	str = base(c);
+	len = 0;
 	if (n / 16 > 0)
-	{
-		putnbr_base((n / 16), c);
-	}
+		len += putnbr_base((n / 16), c);
 	p = str[n % 16];
 	write(1, &p, 1);
-	size = 0;
-	return (size);
+	return (len + 1);
 }

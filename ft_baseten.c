@@ -6,7 +6,7 @@
 /*   By: karamire <karamire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 06:50:03 by karamire          #+#    #+#             */
-/*   Updated: 2024/11/25 08:33:53 by karamire         ###   ########.fr       */
+/*   Updated: 2024/11/27 17:09:42 by karamire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ int	basetenconv(va_list ap)
 	number = va_arg(ap, int);
 	str = ft_itoa(number);
 	size = printnumber(str);
-	free(str);
-	return (size);
+
+	return (free(str), size);
 }
 
 int	printnumber(char *num)

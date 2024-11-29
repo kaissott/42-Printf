@@ -6,7 +6,7 @@
 /*   By: karamire <karamire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 06:13:19 by karamire          #+#    #+#             */
-/*   Updated: 2024/11/25 07:26:52 by karamire         ###   ########.fr       */
+/*   Updated: 2024/11/27 17:20:55 by karamire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,12 @@
 
 int	ftputstr(va_list ap)
 {
-	int	i;
 	int	size;
 	char *str;
 
 	str = va_arg(ap, char*);
+	if (str == NULL)
+		return (write(1, "(null)", 6));
 	size = ft_strlen(str);
 	write(1, str, size);
 	return (size);
