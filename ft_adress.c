@@ -6,7 +6,7 @@
 /*   By: karamire <karamire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 10:41:57 by karamire          #+#    #+#             */
-/*   Updated: 2024/11/29 08:28:08 by karamire         ###   ########.fr       */
+/*   Updated: 2024/11/29 08:44:12 by karamire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	ft_adress_base(void *ptr)
 {
-	unsigned long adress;
-	int len;
-	char *str;
+	unsigned long	adress;
+	int				len;
+	char			*str;
 
 	adress = (unsigned long)ptr;
 	if (ptr == 0)

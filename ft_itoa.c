@@ -6,7 +6,7 @@
 /*   By: karamire <karamire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 18:54:13 by karamire          #+#    #+#             */
-/*   Updated: 2024/11/29 07:31:47 by karamire         ###   ########.fr       */
+/*   Updated: 2024/11/29 08:44:32 by karamire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ static int	ft_numsize(int n)
 	}
 	return (i);
 }
+
 static char	*ft_strdup(const char *s)
 {
 	char	*str;
@@ -77,4 +78,3 @@ char	*ft_itoa(int n)
 	}
 	return (str);
 }
-

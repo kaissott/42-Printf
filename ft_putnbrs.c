@@ -6,7 +6,7 @@
 /*   By: karamire <karamire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 08:33:23 by karamire          #+#    #+#             */
-/*   Updated: 2024/11/27 17:05:39 by karamire         ###   ########.fr       */
+/*   Updated: 2024/11/29 08:43:56 by karamire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ static int	ft_numsize(unsigned int n)
 
 int	putnbr_unsigned(unsigned int n)
 {
-	unsigned int size;
-	char c;
+	unsigned int	size;
+	char			c;
 
 	size = ft_numsize(n);
 	if (n > 9)
@@ -39,6 +39,7 @@ int	putnbr_unsigned(unsigned int n)
 	write(1, &c, 1);
 	return (size);
 }
+
 char	*base(char c)
 {
 	if (c == 'X')
@@ -46,11 +47,12 @@ char	*base(char c)
 	else
 		return ("0123456789abcdef");
 }
+
 int	putnbr_base(unsigned int n, char c)
 {
-	unsigned int len;
-	char	*str;
-	char	p;
+	unsigned int	len;
+	char			*str;
+	char			p;
 
 	str = base(c);
 	len = 0;

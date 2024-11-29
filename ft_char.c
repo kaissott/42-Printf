@@ -6,7 +6,7 @@
 /*   By: karamire <karamire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 06:13:19 by karamire          #+#    #+#             */
-/*   Updated: 2024/11/27 17:20:55 by karamire         ###   ########.fr       */
+/*   Updated: 2024/11/29 08:42:41 by karamire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 int	ftputstr(va_list ap)
 {
-	int	size;
-	char *str;
+	int		size;
+	char	*str;
 
-	str = va_arg(ap, char*);
+	str = va_arg(ap, char *);
 	if (str == NULL)
 		return (write(1, "(null)", 6));
 	size = ft_strlen(str);
@@ -27,7 +27,7 @@ int	ftputstr(va_list ap)
 
 int	ftputchar(va_list ap)
 {
-	char c;
+	char	c;
 
 	c = va_arg(ap, int);
 	write (1, &c, 1);
@@ -39,4 +39,3 @@ int	ftpercent(void)
 	write(1, "%", 1);
 	return (1);
 }
-

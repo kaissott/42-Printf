@@ -6,16 +6,17 @@
 /*   By: karamire <karamire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 03:34:57 by karamire          #+#    #+#             */
-/*   Updated: 2024/11/29 08:31:06 by karamire         ###   ########.fr       */
+/*   Updated: 2024/11/29 09:41:55 by karamire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
-#define FT_PRINTF_H
+# define FT_PRINTF_H
 
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdarg.h>
+# include <limits.h>
 
 char	*base(char c);
 char	*ft_itoa(int n);
