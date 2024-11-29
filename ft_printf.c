@@ -6,7 +6,7 @@
 /*   By: karamire <karamire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 03:29:46 by karamire          #+#    #+#             */
-/*   Updated: 2024/11/29 08:02:24 by karamire         ###   ########.fr       */
+/*   Updated: 2024/11/29 08:36:06 by karamire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 int	ft_checkconv (const char c, va_list ap)
 {
+	void*	adress;
+
 	if (c == 's')
 		return(ftputstr(ap));
 	else if (c == 'c')
@@ -28,9 +30,15 @@ int	ft_checkconv (const char c, va_list ap)
 	else if (c == 'x' || c == 'X')
 		return(putnbr_base(va_arg(ap, unsigned int), c));
 	else if (c == 'p')
-		return (write(1, "0x", 2) + ft_adress_base(va_arg(ap, void *)));
+	{
+		adress = va_arg(ap, void *);
+		if (adress == NULL)
+			return (write(1, "(nil)", 5));
+		return (write(1, "0x", 2) + ft_adress_base(adress));
+	}
 	return (-1);
 }
+
 
 int	ft_printf(const char *format, ...)
 {
@@ -39,8 +47,6 @@ int	ft_printf(const char *format, ...)
 	int	i;
 	int	check;
 
-	if (format == NULL)
-		return (-1);
 	va_start(ap, format);
 	i = 0;
 	printlen = 0;
@@ -61,14 +67,15 @@ int	ft_printf(const char *format, ...)
 	}
 	return (printlen);
 }
-/* int	main(void)
+int	main(void)
 {
 
-char  *u = "testtest";
+	void * a;
+	a = 0;
 
-	ft_printf("len : %d\n",ft_printf(" %p %p\n", 0, 0));
-	//printf("len : %d\n", printf(" %p %p\n", 0, 0));
+	ft_printf("len : %d\n",ft_printf(" %a", a, a));
+	printf("len : %d\n", printf(" %a", a, a));
 
  //ft_printf("%\n", 123465);
 
-}*/
+}
