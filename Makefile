@@ -1,13 +1,12 @@
+.PHONY: all clean fclean re bonus makelibft
+
+NAME = libftprintf.a
+
 CFLAGS = -Wall -Wextra -Werror
 
 CC = cc
 
-.PHONY: all clean fclean re bonus makelibft
 
-
-
-
-NAME = libftprintf.a
 
 SRC				=	ft_adress.c					ft_baseten.c 				\
 					ft_char.c					ft_printf.c					\
@@ -17,9 +16,10 @@ SRC				=	ft_adress.c					ft_baseten.c 				\
 OBJ 			=	$(SRC:.c=.o)
 
 
+
 all : $(NAME)
 
-%.o : %.c ft_printf.h
+%.o : %.c ft_printf.h Makefile
 	cc $(CFLAGS) -c $< -o $@
 
 $(NAME) : $(OBJ)
@@ -33,4 +33,3 @@ fclean:
 	rm -f $(NAME)
 
 re : fclean all
-

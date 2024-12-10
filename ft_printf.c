@@ -6,7 +6,7 @@
 /*   By: karamire <karamire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 03:29:46 by karamire          #+#    #+#             */
-/*   Updated: 2024/11/29 13:52:31 by karamire         ###   ########.fr       */
+/*   Updated: 2024/12/10 07:01:03 by karamire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,47 +68,45 @@ int	ft_printf(const char *format, ...)
 	return (printlen);
 }
 
-/* int	main(void)
+/* int    main(void)
 {
+    int                d;
+    void            *p;
+    char            c;
+    char            *s;
+    char            *s_null;
+    int                i;
+    unsigned int    u;
+    unsigned int    x;
+    unsigned int    X;
 
-	void * a;
-	a = 0;
-
-	ft_printf("len : %d\n",ft_printf(NULL, a, a));
-	//printf("len : %d\n", printf(NULL, a, a));
-
- //ft_printf("%\n", 123465);
-
+    s_null = NULL;
+    c = 'a';
+    s = "hey";
+    d = 69;
+    i = -6969;
+    u = -10;
+    x = -2147483646;
+    X = -2147483646;
+    p = &d;
+    ft_printf("My ft_printf %% %c %s %d %i %u %x %X %p %a\n",
+	c, s, d, i, u, x, X, p);
+    printf("The   printf %% %c %s %d %i %u %x %X %p %a\n", c,
+	s, d, i, u, x, X, p);
+    //---------------------------------------------------------------------
+    printf("len : %d\n", ft_printf("ft_printf %% %c %s %d %i %u
+	%x %X %p\n", c, s, d, i, u, x, X, p));
+    printf("len : %d\n", printf("ft_printf %% %c %s %d %i %u %x
+	%X %p\n", c, s, d, i, u, x, X, p));
+    printf("%d\n", printf(NULL));
+    ft_printf("%d\n", ft_printf(NULL));
+    printf("%d\n", printf("Hello %"));
+    //ft_printf("%d\n", ft_printf("Hello %"));
+    // printf("%d\n", printf("hey %"));
+    ft_printf("%d\n", ft_printf("hey %a"));
+    printf("len : %d\n", printf("%p", NULL));
+    ft_printf("len : %d\n", ft_printf("%p", NULL));
+    printf("len : %d\n", printf("%s", s_null));
+    ft_printf("len : %d\n", ft_printf("%s", s_null));
+    return (0);
 } */
-/* int     main(void)
-{
-        int             i;
-        char    *s;
-        void    *ptr;
-
-        i = 8;
-        // s = "oui oui baguette";
-        s = NULL;
-        ptr = s;
-        printf("int : %d\n\n", ft_printf("my oui p%%%p oui\n", ptr));
-        printf("int : %d\n\n", printf("42 oui p%%%p oui\n", ptr));
-        printf("int : %d\n\n", ft_printf("my oui s%%%s oui\n", NULL));
-        printf("int : %d\n\n", printf("42 oui s%%%s oui\n", NULL));
-        printf("int : %d\n\n", ft_printf("my oui u : %%%u oui\n", i));
-        printf("int : %d\n\n", printf("42 oui u : %%%u oui\n", i));
-        printf("int : %d\n\n", ft_printf("my oui i%%%i oui\n", i));
-        printf("int : %d\n\n", printf("42 oui i%%%i oui\n", i));
-        printf("int : %d\n\n", ft_printf("my oui d%%%d oui\n", i));
-        printf("int : %d\n\n", printf("42 oui d%%%d oui\n", i));
-        printf("int : %d\n\n", ft_printf("my oui x%%%x oui\n", i));
-        printf("int : %d\n\n", printf("42 oui x%%%x oui\n", i));
-        printf("int : %d\n\n", ft_printf("my oui X%%%X oui\n", i));
-        printf("int : %d\n\n", printf("42 oui X%%%X oui\n", i));
-        printf("int : %d\n\n", ft_printf("my oui %%%a oui\n", 35));
-        printf("int : %d\n\n", printf("42 oui %%%a oui\n", 35));
-        ft_printf(" %d\n %d\n %d\n %d\n %d\n %d\n %d\n", INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42);
-        printf(" %d\n %d\n %d\n %d\n %d\n %d\n %d\n", INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42);
-        printf("int : %d\n\n", ft_printf(NULL));
-        printf("int : %d\n\n", printf(NULL));
-} */
-
