@@ -1,4 +1,4 @@
-<h1>**ft_printf**</h1>
+<h1>ft_printf</h1>
 
 Ce projet consiste à recréer la fonction printf() de la bibliothèque C standard, une fonction essentielle pour l'affichage formaté en C1. 
 C'est un excellent exercice pour approfondir la manipulation des arguments variables et la gestion de différents formats de données.
